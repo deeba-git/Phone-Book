@@ -69,9 +69,3 @@ def storing_finding_details():
     else:
         print("Wrong, answer!, It should be either 'Yes' or 'Find'")
 storing_finding_details()
-
-
-
-    
-
-
