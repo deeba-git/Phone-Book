@@ -3,20 +3,8 @@
 import json
 import os
 
-print("For add new number, enter 'yes'?")
-print("For find a saved number, enter 'Find'?: ")
-
-user = input("Enter answer: ") #Taking a user input
-
-#Defining a function for taking a contact details from user
-def get_details():
-    global contact_name, country_code, number
-    contact_name = (input("Enter a name: "))
-    country_code = input("Enter a country code: ")
-    number = input("Enter a phone number: ")
-
 #Defining a function for storing and appending details in .json file
-def append_contact(filename = "phone_book.json"):
+def append_contact(contact_name, country_code, number, filename = "phone_book.json"):
     if os.path.exists(filename): # 'os.path.exists()' means we checking .json file exists or not, if Yes then loads it and append it
         with open(filename, "r") as file: #Opening a file in 'read(r)' mode
             data = file.read() #Reading a file and storing into 'data' 
@@ -47,16 +35,18 @@ def find_contact_from_json(filename = "phone_book.json"):
             print("Searched name: ", keyval["Name"])
             print("Country code: ", keyval["Country_code"])
             print("Phone number: ", keyval["Number"])
-            break
-    else:
-        print("Not found in PhoneBook!")
-
-
-def storing_finding_details():
+            successMsg = "Found in PhoneBook!"
+            return successMsg
+    unsuccessMsg = "Not found in PhoneBook!"
+    return unsuccessMsg
+            
+def storing_finding_details(user):
     if user == "Yes":
         while True:
-            get_details()
-            append_contact()
+            contact_name = input("Enter a name: ")
+            country_code = input("Enter a country code: ")
+            number = input("Enter a phone number: ")
+            append_contact(contact_name, country_code, number)
             print("Sucessfully saved in 'Phone_Book'!")
             print("Want to add another number?")
 
@@ -65,7 +55,13 @@ def storing_finding_details():
                 print("Okay, Thanks!")
                 break
     elif user == "Find":
-        find_contact_from_json()
+        print(find_contact_from_json())
     else:
         print("Wrong, answer!, It should be either 'Yes' or 'Find'")
-storing_finding_details()
+
+print("For add new number, enter 'Yes'?")
+print("For find a saved number, enter 'Find'?: ")
+user = input("Enter answer: ")  #Taking a user input
+
+if __name__  == "__main__":
+    storing_finding_details(user)
