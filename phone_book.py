@@ -57,10 +57,10 @@ def storing_finding_details(user):
     elif user == "Find":
         print(find_contact_from_json())
     else:
-        print("Wrong, answer!, It should be either 'Yes' or 'Find'")
+        print("Wrong, answer!, Answer should be either 'Yes' or 'Find'")
 
-print("For add new number, enter 'Yes'?")
-print("For find a saved number, enter 'Find'?: ")
+print("Would you like to save a New number or Find a number from PhoneBook? \nTo save a new number, enter 'Yes'")
+print("To find a saved number, enter 'Find'?: ")
 user = input("Enter answer: ")  #Taking a user input
 
 if __name__  == "__main__":
