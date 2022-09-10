@@ -59,9 +59,8 @@ def storing_finding_details(user):
     else:
         print("Wrong, answer!, Answer should be either 'Yes' or 'Find'")
 
-print("Would you like to save a New number or Find a number from PhoneBook? \nTo save a new number, enter 'Yes'")
-print("To find a saved number, enter 'Find'?: ")
-user = input("Enter answer: ")  #Taking a user input
-
 if __name__  == "__main__":
+    print("Would you like to save a New number or Find a number from PhoneBook? \nTo save a new number, enter 'Yes'")
+    print("To find a saved number, enter 'Find'?: ")
+    user = input("Enter answer: ")  #Taking a user input
     storing_finding_details(user)
